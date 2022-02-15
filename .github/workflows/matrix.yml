@@ -1,0 +1,20 @@
+name: matrix
+on: push
+jobs:
+  checking-node-version:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node_version: [6, 8, 10]
+        include:
+          - os: ubuntu-latest
+            node_version: 8
+        exclude:
+          - os: ubuntu-latest
+            node_version: 6
+          - os: macos-latest
+            node_version: 8
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: check node version
+        run: node -v
