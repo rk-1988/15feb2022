@@ -1,0 +1,7 @@
+ name: conditional command
+  run: |
+   if $CONDITION; then
+   # run the one command
+   else
+   # run the other command
+   fi
